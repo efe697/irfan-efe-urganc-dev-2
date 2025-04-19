@@ -1,0 +1,52 @@
+﻿@model BookStore.Models.Category
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Title
+            </th>
+            
+            <th>
+                Author
+            </th>
+            
+            <th>
+               Price
+            </th>
+           
+         
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-controller="Books" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+               
+                
+              
+            </tr>
+        }
+    </tbody>
+</table>
+   
+    <a asp-action="Index">Back to List</a>
+</div>
